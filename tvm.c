@@ -14,7 +14,9 @@ typedef enum operation {
     SET,    // set register to literal
     LOAD,   // set register to memory value
     COPY,   // set register to value in another register
-    STORE,  // store register value in memory
+    STORE,  // store register value in ram
+    WRITE,  // store register value to the disk
+    READ,   // set register to a value on the disk
 
     ADD,
     SUB,
@@ -49,7 +51,7 @@ typedef trit u9[9];
 u9 memory[U9_MAX] = {0};
 u9 r[27] = {0};
 
-int as_number(u9 nonet) {
+int val(u9 nonet) {
     int result = 0;
     int power = 1;
     for (int i = 0; i < 9; i++) {
@@ -59,8 +61,8 @@ int as_number(u9 nonet) {
     return result;
 }
 
-int op(operation opcode, ...) {
-
+int op(u9* instruction) {
+    
 }
 
 void main(int argc, char** argv) {
